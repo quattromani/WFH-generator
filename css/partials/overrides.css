@@ -11,9 +11,17 @@ header h1 {
   line-height: 1;
 }
 
+.button-bar {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .excuse-generator {
   min-height: 8em;
   padding: 1em;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=overrides.css.map */

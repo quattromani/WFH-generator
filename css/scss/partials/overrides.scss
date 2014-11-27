@@ -15,7 +15,12 @@ header {
   }
 }
 
+.button-bar {
+  @include center;
+}
+
 .excuse-generator {
   min-height: 8em;
   @include padding($padding);
+  font-style: italic;
 }

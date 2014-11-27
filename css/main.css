@@ -1477,9 +1477,18 @@ header {
     font-size: 2.4rem;
     line-height: 1; }
 
+.button-bar {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
 .excuse-generator {
   min-height: 8em;
-  padding: 1em; }
+  padding: 1em;
+  font-style: italic; }
 
 /* ==========================================================================
     Pagination -- Version: 1.9.0.0 - Compiled: timestamp()
