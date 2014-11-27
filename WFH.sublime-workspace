@@ -5,9 +5,6 @@
 		[
 		]
 	},
-	"buffers":
-	[
-	],
 	"build_system": "",
 	"command_palette":
 	{
@@ -50,11 +47,18 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-	],
 	"file_history":
 	[
+		"/Users/Q/Sites/scaffold/js/select.js",
+		"/Users/Q/Sites/WFH-generator/js/build/production.js",
+		"/Users/Q/Sites/WFH-generator/_includes/banner.html",
+		"/Users/Q/Sites/WFH-generator/_layouts/default.html",
+		"/Users/Q/Sites/WFH-generator/js/main.js",
+		"/Users/Q/Sites/WFH-generator/humans.txt",
+		"/Users/Q/Sites/WFH-generator/_config.yml",
+		"/Users/Q/Sites/WFH-generator/README.md",
+		"/Users/Q/Sites/terracare/js/careers.js",
+		"/Users/Q/Sites/WFH-generator/about.md",
 		"/Users/Q/Sites/officefootball/js/main.js",
 		"/Users/Q/Sites/officefootball/json/leaderboard.json",
 		"/Users/Q/Sites/MGF/_includes/head.html",
@@ -67,7 +71,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -81,6 +85,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"quotes",
+			"Quotes",
+			"quotes"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -89,27 +96,19 @@
 		"replace_history":
 		[
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
 		"wrap": true
 	},
-	"groups":
-	[
-		{
-			"sheets":
-			[
-			]
-		}
-	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 34.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -142,7 +141,6 @@
 	{
 		"height": 0.0
 	},
-	"project": "WFH.sublime-project",
 	"replace":
 	{
 		"height": 46.0
@@ -172,7 +170,6 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
 	"settings":
 	{
 	},
