@@ -25,4 +25,3 @@
 $('.excuse-me').click(function() {
   $('.excuse-generator').getExcuse();
 });
-
