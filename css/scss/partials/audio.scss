@@ -1,0 +1,14 @@
+// Pull globals for individually compiled css files
+@import '../globals/allGlobals';
+
+/* ==========================================================================
+    Audio -- Version: 0.2.1 - Compiled: #{timestamp()}
+   ========================================================================== */
+
+audio {
+  max-width: 100%;
+
+  &:not([controls]) {
+    display: none;
+  }
+}

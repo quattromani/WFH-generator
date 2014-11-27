@@ -1,0 +1,77 @@
+/* ==========================================================================
+    Message Boxes -- Version: 0.2.1 - Compiled: timestamp()
+   ========================================================================== */
+.message {
+  position: relative;
+  display: inline-block;
+  padding: 1em;
+  line-height: 1;
+}
+
+.message-loading, .message-valid, .message-warning {
+  display: flex;
+  align-items: center;
+  background: white;
+  font-weight: 700;
+}
+.message-loading:before, .message-valid:before, .message-warning:before {
+  display: flex;
+  align-items: center;
+  min-width: 3em;
+  font-family: "FontAwesome", Arial, Sans-Serif;
+  font-style: normal;
+  font-weight: normal;
+  padding: .25em 1em;
+}
+
+.message-loading {
+  color: #ccc;
+}
+.message-loading:before {
+  background: white;
+  content: "u";
+}
+
+.message-valid {
+  color: #308e28;
+}
+.message-valid:before {
+  background: #59ce4e;
+  content: "C";
+}
+
+.message-warning {
+  color: #ef272d;
+}
+.message-warning:before {
+  background: #f68689;
+  content: "3";
+}
+
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.info-box {
+  border-left: .3em solid currentColor;
+  background: #bae7ff;
+  color: #0078ba;
+}
+
+.error-box {
+  border-left: .3em solid currentColor;
+  background: #fde5e6;
+  color: #d31016;
+}
+
+.valid-box {
+  border-left: .3em solid currentColor;
+  background: #c9efc6;
+  color: #308e28;
+}
+
+/*# sourceMappingURL=message-box.css.map */

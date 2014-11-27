@@ -1,0 +1,164 @@
+// Base Site Settings
+$site-width: 1280px;
+
+// Navigation
+$nav-items: 5;
+
+// ---------------------------------------------------------------------- //
+
+// Column / Grid Control
+$site-column-count: 12;
+$site-gutter-width: 2%;
+
+// Breakpoints
+$bp-big: 68.75em;
+$bp-medium: 62em;
+$bp-small: 40em;
+
+// Sizing
+$padding: 1em;
+$margin: 1em;
+
+//Border-Radius
+$border-radius: 3px;
+
+// ---------------------------------------------------------------------- //
+
+// Colors
+$color-white: #fff;
+$color-off-white: #f2f2f2;
+$color-black: #000;
+$color-grey: #ccc;
+$color-dark-grey: darken($color-grey, 10%);
+$color-light-grey: lighten($color-grey, 10%);
+$color-light-light-grey: lighten($color-grey, 45%);
+
+$color-primary-red: #ef272d;
+$color-primary-green: #3eb633;
+$color-primary-blue: #0099ed;
+$color-primary-orange: #f62;
+$color-primary-yellow: #ffda21;
+$color-primary-indigo: #583c9c;
+$color-primary-violet: #8d25bb;
+
+$color-secondary-red: darken($color-primary-red, 10%);
+$color-secondary-green: darken($color-primary-green, 10%);
+$color-secondary-blue: darken($color-primary-blue, 10%);
+$color-secondary-orange: darken($color-primary-orange, 10%);
+$color-secondary-yellow: darken($color-primary-yellow, 10%);
+$color-secondary-indigo: darken($color-primary-indigo, 10%);
+$color-secondary-violet: darken($color-primary-violet, 10%);
+
+$color-tertiary-red: lighten($color-primary-red, 40%);
+$color-tertiary-green: lighten($color-primary-green, 40%);
+$color-tertiary-blue: lighten($color-primary-blue, 40%);
+$color-tertiary-orange: lighten($color-primary-orange, 40%);
+$color-tertiary-yellow: lighten($color-primary-yellow, 40%);
+$color-tertiary-indigo: lighten($color-primary-indigo, 40%);
+$color-tertiary-violet: lighten($color-primary-violet, 40%);
+
+// Typography
+$text: #454545;
+$text-color: $text;
+$link: $color-primary-red;
+$link-hover: $color-secondary-red;
+$text-grey: $color-grey;
+$text-light-grey: $color-light-grey;
+$text-link: $link;
+$text-white: $color-white;
+$error: $color-secondary-red;
+$success: $color-secondary-green;
+$info: $color-primary-blue;
+
+// Always declare site background fallback
+$site-background: $color-white;
+
+// Buttons
+$color-button-primary: $color-primary-blue;
+$color-button-primary-hover: $color-secondary-blue;
+
+
+// Forms
+$form-focus: $color-light-grey;
+
+// ---------------------------------------------------------------------- //
+
+// Typography
+// Fonts
+$base-font-reset: 10px; // makes easy base-10 math
+$base-font-size: 16;
+$base-line-height: 1.443;
+// Declare mixin need for px
+$support-legacy: true;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 700;
+$font-weight-bold: 900;
+
+// Google Fonts
+// $google-fonts-url: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro';
+
+// Font Families List
+$font-faces: (
+  'NeueHaasGroteskDisp-Pro-Lt': ('NHaasGroteskDSPro-45Lt', 400),
+  'NeueHaasGroteskDisp-Pro': ('NHaasGroteskDSPro-55Rg', 400),
+  'NeueHaasGroteskDisp-Pro-75': ('NHaasGroteskDSPro-75Bd', 400),
+  'fontawesome': ('icons/fontawesome-webfont', normal)
+);
+$font-path: '../fonts/';
+
+// Font Familes Variables
+$base-font: 'NeueHaasGroteskDisp-Pro', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$arial: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$base-font-alt: $arial;
+$arial-bold: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+$heading-font: $base-font;
+$heading-font-alt: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$fontawesome: 'FontAwesome';
+$pre: Inconsolata,Monaco,Consolas,'Andale Mono','Bitstream Vera Sans Mono','Courier New',Courier,monospace;
+
+$heading-list: (
+  h1   42   200   $heading-font,
+  h2   36   200   $heading-font,
+  h3   30   700   $heading-font-alt,
+  h4   24   200   $heading-font,
+  h5   18   700   $heading-font-alt,
+  h6   18   100   $heading-font
+);
+
+$lede-text: ($base-font-size * 1.375);
+$body-text: $base-font-size;
+$small-body-text: ($base-font-size *.75);
+$disclaimer-text: $small-body-text;
+
+// ---------------------------------------------------------------------- //
+
+// Find and Highlight Mistakes
+$find-mistakes: false;
+
+// If you have to support IE8
+$support-legacy: true;
+
+// ---------------------------------------------------------------------- //
+// Decide on included components
+
+$jumpto: true;
+$mistakes: true;
+$styleguide: true;
+$audio: true;
+$carousel: true;
+$drop: true;
+$forms: true;
+$image-content-panel: true;
+$message-box: true;
+$modals: true;
+$pagination: true;
+$pills: true;
+$scrollTo: true;
+$syntax: true;
+$tables: true;
+$tooltips: true;
+$videos: true;
+

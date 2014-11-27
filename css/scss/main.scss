@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+// Mixins and Variables
+// All globals are combined in allGlobals.scss to reduce the nuber of updates necessary to add new files
+@import "globals/allGlobals";
+
+/* Base */
+@import "partials/base";
+
+/* Layout */
+@import "partials/layout";
+
+/* Modules */
+
+@import "partials/nav",
+
+        "partials/colors",
+
+        "partials/typography",
+
+        "partials/lists",
+
+        "partials/summary",
+
+        "partials/buttons",
+
+        "partials/overrides",
+
+        "partials/pagination",
+
+        "partials/pills",
+
+        "partials/tabs",
+
+        "partials/accordion",
+
+        "partials/message-box",
+
+        "partials/modals",
+
+        "partials/tooltips",
+
+        "partials/carousel",
+
+        "partials/accessibility",
+
+        "partials/forms",
+
+        "partials/drop",
+
+        "partials/images",
+
+        "partials/image-content-panel",
+
+        "partials/audio",
+
+        "partials/videos",
+
+        "partials/tables",
+
+        "partials/modules",
+
+        "partials/jumpTo",
+
+        "partials/styleguide",
+
+        "partials/syntax",
+
+        "partials/mistakes",
+
+        "partials/helpers";

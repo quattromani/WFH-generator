@@ -1,0 +1,19 @@
+/* ==========================================================================
+    Videos -- Version: 0.4.0.1 - Compiled: timestamp()
+   ========================================================================== */
+video {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  margin: 0;
+}
+@media (max-width: 40em) {
+  video video {
+    height: auto;
+  }
+}
+figure video {
+  margin-bottom: 1em;
+}
+
+/*# sourceMappingURL=videos.css.map */

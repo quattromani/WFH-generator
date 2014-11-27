@@ -1,0 +1,11 @@
+/* ==========================================================================
+    Audio -- Version: 0.2.1 - Compiled: timestamp()
+   ========================================================================== */
+audio {
+  max-width: 100%;
+}
+audio:not([controls]) {
+  display: none;
+}
+
+/*# sourceMappingURL=audio.css.map */

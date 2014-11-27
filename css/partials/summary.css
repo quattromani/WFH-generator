@@ -1,0 +1,39 @@
+/* ==========================================================================
+    Summary -- Version: 0.2.1 - Compiled: timestamp()
+    ========================================================================== */
+details {
+  margin: 1em 0;
+  background: #f2f2f2;
+}
+details p {
+  padding: 1em;
+}
+details summary {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  width: 100%;
+  padding: 0.5em;
+  background: #ccc;
+  outline: none;
+  color: #fff;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary:before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  content: "\f078";
+  font-family: "FontAwesome", Arial, Sans-Serif;
+  font-style: normal;
+  font-weight: normal;
+}
+details[open] summary:before {
+  content: "\f077";
+}
+
+/*# sourceMappingURL=summary.css.map */

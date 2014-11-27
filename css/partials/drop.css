@@ -1,0 +1,27 @@
+/* ==========================================================================
+    Drag & Drop -- Version: 0.2.1 - Compiled: timestamp()
+    ========================================================================== */
+#holder {
+  border: 3px dashed #e6e6e6;
+  width: 300px;
+  min-height: 300px;
+  margin: 2em auto;
+}
+#holder.hover {
+  border: 10px dashed #0c0;
+}
+#holder img {
+  display: block;
+  margin: 1em auto;
+}
+#holder p {
+  margin: 1em;
+}
+
+.fail {
+  padding: 0.2em;
+  background: #ef272d;
+  color: #fff;
+}
+
+/*# sourceMappingURL=drop.css.map */

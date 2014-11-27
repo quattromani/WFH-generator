@@ -1,0 +1,348 @@
+// Mixins
+
+// Breakpoint
+@mixin bp($point) {
+  @if $point == bp-medium {
+    @media (max-width: $bp-medium) { @content; }
+  }
+  @else if $point == bp-small {
+    @media (max-width: $bp-small)  { @content; }
+  }
+  @else if $point == bp-big {
+    @media (min-width: $bp-big)  { @content; }
+  }
+}
+
+// Inline-Block IE
+@mixin inline-block {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+}
+
+// Margin
+@mixin margin($top: 0, $right: null, $bottom: null, $left: null) {
+  margin: $top $right $bottom $left;
+}
+
+// Padding
+@mixin padding($top: 0, $right: null, $bottom: null, $left: null) {
+  padding: $top $right $bottom $left;
+}
+
+// Calc
+@mixin calc($prop, $val, $fallback: null) {
+  // IE8? sorry
+  @if $support-legacy {
+    #{$prop}: $fallback;
+  }
+  @each $pre in -webkit-, -moz- {
+    #{$prop}: $pre + calc(#{$val});
+  }
+  #{$prop}: calc(#{$val});
+}
+
+// Rem Mixin
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*$base-font-reset/10};
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value/10}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  @if $support-legacy {
+    #{$property}: $pxValues;
+  }
+  #{$property}: $remValues;
+}
+
+// Font Family Mixin
+@mixin font($font, $style: normal, $weight: normal) {
+  font-family: $font, Helvetica, Arial, sans-serif;
+  font-style:  $style;
+  font-weight: $weight;
+}
+
+@mixin font-family($font, $size: $base-font-size, $style: normal, $weight: normal) {
+  font-family: $font,Arial,Sans-Serif;
+  font-style: $style;
+  font-weight: $weight;
+}
+
+// Font Size
+@mixin font-size($value, $base: $base-font-size) {
+  @if $support-legacy {
+    font-size: $value * 1px;
+  }
+  font-size: $value * .1rem;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin clearfix() {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Column / Grid Control
+$width: 100%;   // total with of page
+$site-column-count: 12 !default;    // number of columns
+$site-gutter-width: 2% !default;  // margin between columns
+$marginless: 0;
+
+// math magic
+$col-width: ($width - ($site-gutter-width * ($site-column-count - 1))) / $site-column-count;
+$col-total-width: $col-width + $site-gutter-width;
+
+$marginless-col-width: $width / $site-column-count;
+
+// create row
+@mixin row() {
+  @include clearfix;
+  @include inline-block;
+  width: $width;
+  margin-bottom: $margin;
+
+  &:only-child {
+    margin-bottom: 0;
+  }
+}
+
+// create a column
+@mixin col($n: 1) {
+  float: left;
+  @include span($n);
+}
+
+// create a marginless column
+@mixin marginless-col($n: 1) {
+  float: left;
+  @include marginless-span($n);
+}
+
+// element span n columns
+@mixin span($n: 1) {
+  width: ($n * $col-width) + (($n - 1) * $site-gutter-width);
+  @if $n == $site-column-count {
+    margin-left: 0;
+    } @else {
+      margin-left: $site-gutter-width;
+    }
+  }
+
+  @mixin marginless-span($n: 1) {
+    width: ($n * $marginless-col-width);
+    margin-left: 0;
+  }
+
+// remove margin from all last columns
+@mixin first() {
+  margin-left: 0;
+}
+
+// prepend n blank columns
+@mixin prepend($n: 1) {
+  margin-left: $col-total-width * $n;
+}
+
+// append n blank columns
+@mixin append($n: 1) {
+  margin-right: $col-total-width * $n + $site-gutter-width;
+}
+
+// Flexbox
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+// Background Clip
+@mixin background-clip($type: padding-box) {
+  background-clip: $type;
+}
+
+// Border Radius
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+  @include background-clip;
+}
+
+// RGBa Colors w/Fallback
+@mixin rgba($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background: $rgba;
+  .ie & {
+    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str}, endColorstr=#{$ie-hex-str})";
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+    zoom: 1
+  }
+}
+
+// Background Gradients
+@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+  background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+  background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+  background-image:      -o-linear-gradient(top, $startColor, $endColor);
+  background-image:         linear-gradient(top, $startColor, $endColor);
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', EndColorStr='#{$endColor}')"; */
+}
+
+@mixin horizontal-gradient($startColor, $to, $endColor: 100%) {
+  /* fallback/image non-cover color */
+  background-color: $startColor;
+  background-image: -moz-linear-gradient(left, $startColor 0%, $to $endColor);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $startColor), color-stop($endColor, $to));
+  background-image: -webkit-linear-gradient(left, $startColor 0%, $to $endColor);
+  background-image: -o-linear-gradient(left, $startColor 0%, $to $endColor);
+  background: -ms-linear-gradient(left, $startColor 0%, $to $endColor);
+  background: linear-gradient(to right, $startColor 0%, $to $endColor);
+}
+
+// Box-Shadow
+@mixin box-shadow($value: 0 1px 2px 0 #888) {
+  box-shadow: $value;
+}
+
+// Vertical Align
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// Horizontal Align
+@mixin center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// placeholder from Horizontal Alignitth
+%center {
+  @include center;
+}
+
+// Transform
+@mixin rotate($degrees) {
+  will-change: transform;
+  transform: rotate($degrees * 1deg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  zoom: 1;
+}
+
+// Transitions
+@mixin transition($what: all, $length: .2s, $easing: ease-in-out) {
+  will-change: transition;
+  transition: $what $length $easing;
+}
+
+// Column Count
+@mixin columns($count, $gap) {
+  -webkit-column-count: $count;
+  -moz-column-count: $count;
+  column-count: $count;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+}
+
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+// Accessibly hide content:
+// snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin visually-hidden($state: hidden) {
+
+  @if ($state == undo) {
+    position: static;
+    overflow: visible;
+    width:  auto;
+    height: auto;
+    margin: auto;
+    clip:   auto;
+  }
+
+  @else {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+}

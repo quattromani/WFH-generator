@@ -1,14 +1,24 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+name: WFH Excuse Generator
+version: 0.1.1
+author: Max Quattromani
+email: max@maxquattromani.com
+description: ""
+baseurl: "/WFH-generator"
+url: "http://maxquattromani.com"
+author: "Max Quattromani"
+twitter_username: maxquattromani
+github_username:  quattromani
 
 # Build settings
 markdown: kramdown
+permalink: pretty
+highlighter: true
+
+exclude: ['node_modules', 'scss', 'DAM']
+
+google_analytics: false
+google_analytics_id: UA-50387096-4
+jquery_version: 1.9.0
+
+footer: ""
